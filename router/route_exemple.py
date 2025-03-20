@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-router = APIRouter(prefix='/teste')
+router_exemplo = APIRouter(prefix='/teste',tags=['Teste'])
 
-@router.get('/alo',tags=['Apenas teste'])
-def teste(alo:str):
-  return 'aaaa'
+@router_exemplo.get('/teste inicial')
+def teste(str_inical:str|int ) -> str:
+  return str_inical
