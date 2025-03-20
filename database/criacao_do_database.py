@@ -12,7 +12,8 @@ metadata,
 Column("id", Integer, primary_key=True,autoincrement=True),
 Column("nome",String,nullable=False),
 Column("email",String,unique=True,nullable=False),
-Column("senha",String,nullable=False)
+Column("senha",String,nullable=False),
+Column("telefone",String,nullable=True),
 )
 metadata.create_all(engine)
 
