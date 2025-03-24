@@ -13,5 +13,6 @@ echo. > .gitignore
 echo. > dependencies.py
 echo. > main.py
 echo. > requirements.txt
+echo. > .env
 
 echo Estrutura criada com sucesso!
