@@ -6,8 +6,13 @@ import bcrypt
 import os
 Base = declarative_base()
 
+from dotenv import load_dotenv
+
+# Carregar as variáveis do arquivo .env
+load_dotenv()
+
 # Defina uma chave secreta (Pepper)
-SECRET_KEY = os.getenv("SECRET_KEY", "minha_chave_super_secreta").encode()
+SECRET_KEY = os.getenv("SECRET_KEY").encode()
 
 class Usuario(Base):
   __tablename__ = "usuarios"
