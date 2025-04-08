@@ -6,5 +6,12 @@ def conexao_sqlite():
   caminho = os.path.join(os.getcwd(),'meu_banco.db')
   engine = create_engine(f"sqlite:///{caminho}")
   SessionLocal  =sessionmaker(bind=engine)
-  return engine, SessionLocal()
+  return engine, SessionLocal
 
+def get_db():
+    engine, SessionLocal = conexao_sqlite()
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close() 

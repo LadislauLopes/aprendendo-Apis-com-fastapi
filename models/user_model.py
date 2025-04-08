@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import  declarative_base
 import uuid
-import hashlib
+
 import bcrypt
 import os
 Base = declarative_base()

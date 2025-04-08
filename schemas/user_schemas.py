@@ -1,8 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 
-class Usuario(BaseModel):
-    id: str
+class UsuarioSchemas(BaseModel):
     nome: str
     email: str
     senha: str

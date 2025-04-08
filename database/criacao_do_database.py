@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, MetaData, Table, Integer, String, Column
+from sqlalchemy import create_engine, MetaData, Table, String, Column
 import uuid
 
 def gerar_uuid():
