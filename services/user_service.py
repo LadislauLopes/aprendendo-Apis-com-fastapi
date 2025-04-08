@@ -1,6 +1,7 @@
 from schemas.user_schemas import UsuarioSchemas 
 from sqlalchemy.orm import Session
 from models.user_model import Usuario
+from fastapi import HTTPException
 
 def user_create(db:Session, user:UsuarioSchemas):
     try:
@@ -16,4 +17,4 @@ def user_create(db:Session, user:UsuarioSchemas):
         print(new_user.nome)
         return new_user  # Retorna o usuário criado
     except Exception as e:
-        print(e)
+        raise HTTPException(status_code=422, detail=str(e))

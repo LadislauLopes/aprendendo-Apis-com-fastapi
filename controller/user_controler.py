@@ -10,4 +10,4 @@ def create_user(user: UsuarioSchemas, db: Session):
         new_user = user_create(db=db, user=user)
         return new_user
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=422, detail=str(e))
