@@ -1,7 +1,7 @@
 from schemas.user_schemas import UsuarioSchemas 
 from sqlalchemy.orm import Session
 from models.user_model import Usuario
-from fastapi import HTTPException, web
+from fastapi import HTTPException
 
 def user_create(db:Session, user:UsuarioSchemas):
     try:
