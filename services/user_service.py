@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from models.user_model import Usuario
 from fastapi import HTTPException
 
-def user_create(db:Session, user:UsuarioSchemas):
+def user_creator_service(db:Session, user:UsuarioSchemas):
     try:
         hashed_password = Usuario.hash_senha_bcrypt(user.senha)
         new_user = Usuario(nome=user.nome,
