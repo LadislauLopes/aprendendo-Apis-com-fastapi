@@ -14,7 +14,6 @@ def user_creator_service(db:Session, user:UsuarioSchemas):
         db.add(new_user)
         db.commit()
         db.refresh(new_user)  # Atualiza o objeto 'new_user' com os dados do banco (inclusive o ID)
-        print(new_user.nome)
         return new_user  # Retorna o usuário criado
     except Exception as e:
         print(e)
