@@ -17,7 +17,7 @@ def get_user_by_email_controler(email: str, db:Session):
         user = get_user_by_email_service(email,db=db)
         return user
     except Exception as e:
-        print(e)
+        
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Erro na busca: {e}"

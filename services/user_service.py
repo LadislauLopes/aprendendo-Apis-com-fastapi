@@ -16,7 +16,7 @@ def user_creator_service(db:Session, user:UsuarioSchemas):
         db.refresh(new_user)  # Atualiza o objeto 'new_user' com os dados do banco (inclusive o ID)
         return new_user  # Retorna o usuário criado
     except Exception as e:
-        print(e)
+        
         raise HTTPException(status_code=422, detail=str(e))
 
 
@@ -25,7 +25,7 @@ def get_user_by_email_service(email: str, db:Session):
         user = db.query(Usuario).filter(Usuario.email==email).first()
         return user
     except Exception as e:
-        print(e)
+        
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Erro na busca dasda: {e}"
