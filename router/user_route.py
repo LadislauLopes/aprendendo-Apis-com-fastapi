@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from controller.user_controler import user_creator_service , get_user_by_email_controler
 from database.conexao_banco import get_db
 from schemas.user_schemas import UsuarioSchemas
-
+from models.user_model import Usuario
 
 
 route = APIRouter(prefix='/user',tags=['Usuario'])
@@ -17,5 +17,9 @@ def user_creator(user:UsuarioSchemas,db:Session = Depends(get_db)):
     
 @route.get('/auth')
 def login(email: str, passaword:str,db:Session = Depends(get_db) ):
-    user=get_user_by_email_controler(email,db)
-    return user
+    try:
+        user=get_user_by_email_controler(email,db)
+        auth = Usuario.verificar_senha_bcrypt(senha_fornecida=passaword,hash_armazenado=user.senha)
+    except:
+        auth = False
+    return auth
