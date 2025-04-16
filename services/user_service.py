@@ -28,5 +28,5 @@ def get_user_by_email_service(email: str, db:Session):
         
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Erro na busca dasda: {e}"
+            detail=f"Erro na busca: {e}"
         )
