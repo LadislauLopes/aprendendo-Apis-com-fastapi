@@ -30,3 +30,5 @@ def get_user_by_email_service(email: str, db:Session):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Erro na busca: {e}"
         )
+    
+

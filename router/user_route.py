@@ -4,7 +4,7 @@ from controller.user_controler import user_creator_service , get_user_by_email_c
 from database.conexao_banco import get_db
 from schemas.user_schemas import UsuarioSchemas
 from models.user_model import Usuario
-
+from auth.user_auth import criar_token_acesso
 
 route = APIRouter(prefix='/user',tags=['Usuario'])
 
@@ -20,6 +20,9 @@ def login(email: str, passaword:str,db:Session = Depends(get_db) ):
     try:
         user=get_user_by_email_controler(email,db)
         auth = Usuario.verificar_senha_bcrypt(senha_fornecida=passaword,hash_armazenado=user.senha)
+        token =criar_token_acesso(sub=user.id)
+        return token
     except:
+        
         auth = False
     return auth
