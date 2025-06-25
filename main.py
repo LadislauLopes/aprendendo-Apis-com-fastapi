@@ -2,10 +2,8 @@ from fastapi import FastAPI
 import uvicorn
 from router.user_route import route
 
-app=FastAPI()
-# @app.get('/')
-# def read_root():
-#   return {'message': 'aloooooo'}
+app=FastAPI(title='Aprendendo API', description='API de exemplo com FastAPI',openapi_url='/api-docs')
+
 
 app.include_router(route)
 
